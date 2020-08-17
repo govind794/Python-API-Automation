@@ -11,14 +11,14 @@ from Utility import Log
 
 class Config:
     # Titles:
-    TITLE_DEBUG = "privete_debug"
+    TITLE_DEBUG = "private_debug"
     TITLE_RELEASE = "online_release"
     TITLE_EMAIL = "mail"
 
     # Values:
     VALUE_TESTER = "tester"
-    VALUE_ENVIRONMENT = "environement"
-    VELUE_VERSION = "version"
+    VALUE_ENVIRONMENT = "environment"
+    VELUE_VERSION = "versionCode"
     VALUE_HOST = "host"
     VALUE_LOGIN_HOST = "loginHost"
     VALUE_LOGIN_INFO = "loginInfo"
@@ -33,7 +33,6 @@ class Config:
     # Path
     path_dir = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 
-    # Set all file path log, xml report and html report
     def __init__(self):
         self.config = ConfigParser()
         self.logs = Log.Logs()
@@ -41,11 +40,9 @@ class Config:
         self.xml_report_path = Config.path_dir + 'Report/xml'
         self.html_report_path = Config.path_dir + 'Report/html'
 
-        # File path not found
         if not os.path.exists(self.conf_path):
             raise FileNotFoundError("File not found!")
 
-        # Set all private debug and value for testing
         self.config.read(self.conf_path, encoding='utf-8')
         self.tester_debug = self.get_conf(Config.TITLE_DEBUG, Config.VALUE_TESTER)
         self.environment_debug = self.get_conf(Config.TITLE_DEBUG, Config.VALUE_ENVIRONMENT)
@@ -61,7 +58,6 @@ class Config:
         self.loginHost_release = self.get_conf(Config.TITLE_RELEASE, Config.VALUE_LOGIN_HOST)
         self.loginInfo_release = self.get_conf(Config.TITLE_RELEASE, Config.VALUE_LOGIN_INFO)
 
-    # Get conf file data
     def get_conf(self, title, value):
         '''
         :param title:
@@ -70,7 +66,6 @@ class Config:
         '''
         return self.config.get(title, value)
 
-    # Set conf file data and file open and return write value
     def set_conf(self, title, value, text):
         '''
         :param title:

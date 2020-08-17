@@ -22,6 +22,7 @@ def api_Response():
     url = Init.BaseUrl + '/' + API.login
     # file = open("/Users/govind794/PycharmProjects/PytestAPI/Resources/login_param.json", 'r')
     # json_input = file.read()
+    print(login_param())
     return requests.post(url, json=login_param())
 
 
@@ -91,3 +92,4 @@ def test_logout():
         print(f"\n Response: {response['response']}")
     else:
         raise AssertionError("API Response", response)
+

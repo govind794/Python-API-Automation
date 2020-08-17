@@ -1,0 +1,30 @@
+---
+Regular_Booking_Flow:
+  dec: "Regular booking flow"
+  parameters:
+    -
+      url: /city
+      data: None
+      header: {
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Content-Type": "application/json"
+              }
+    -
+      url: /getAssetsAvailability
+      data: {
+              "is_bike": {{is_bike}},
+              "city_id": {{city_id}},
+              "start_time": "{{start_time}}",
+              "end_time": "{{end_time}}",
+              "latitude": {{latitude}},
+              "longitude": {{longitude}},
+              "drop_latitude": {{latitude}},
+              "drop_longitude": {{longitude}},
+              "type": "{{booking_type}}",
+              "src": {{booking_source}},
+              "range": {{range}}
+            }
+      header: {
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Content-Type": "application/json"
+              }

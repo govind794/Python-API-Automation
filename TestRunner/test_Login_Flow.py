@@ -5,16 +5,15 @@ import logging
 import sys
 
 
-# @pytest.mark.usefixtures('initialize')
 class TestAPI:
 
-    # @pytest.fixture(scope='function')
-    # def initialize(self):
-    #     def cleanup():
-    #         logging.info("Cleaning Test Date.")
-    #
-    #     yield
-    #     cleanup()
+    @pytest.fixture(scope='function')
+    def initialize(self):
+        def cleanup():
+            logging.info("Cleaning Test Date.")
+
+        yield
+        cleanup()
 
     def test_login_users(self):
         test_name = sys._getframe().f_code.co_name

@@ -1,0 +1,30 @@
+---
+Facebook_Login_Flow:
+  dec: "Test"
+  parameters:
+    -
+      url: /login
+      data: {
+              "access_token": "ya29.a0Adw1xeXLavDjqVUQNFI4qJM7k8kGKGldTKFqUPtZV8zWhyzglQ_qksVjwzrVHBqELSwWXHwheqXNKU-ONmKeLUD5_nm1LbonXIbdevHefuLGWhVGw3ehcKFfO4CpMxTeWOV2VHhoghTtNqPIpryPWIY58oIH8hMNC-Azja6FL0EcMA"
+            }
+      header: {
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+                "Content-Type": "application/json"
+              }
+    -
+      url: /loginCheck
+      data: {
+              username: api@gmail.com,
+              password: Api@123
+          }
+      header: {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+        "Content-Type": "application/json"
+      }
+    -
+      url: /logout
+      data: None
+      header: {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
+        "Content-Type": "application/json"
+      }
